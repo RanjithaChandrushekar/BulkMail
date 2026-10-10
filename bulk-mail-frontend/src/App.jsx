@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Send, History, CheckCircle2, AlertCircle, Loader2, Mail, Users, FileText } from 'lucide-react';
 
-const API_BASE = 'https://bulkmail-lih9.onrender.com/api';
+const API_BASE = '';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('compose');
@@ -11,7 +11,7 @@ export default function App() {
   const [recipientsInput, setRecipientsInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState([]);https://bulkmail-lih9.onrender.com/api
 
   const fetchHistory = async () => {
     try {

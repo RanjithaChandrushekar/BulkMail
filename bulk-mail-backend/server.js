@@ -34,12 +34,17 @@ const emailSchema = new mongoose.Schema({
 
 const EmailLog = mongoose.model('EmailLog', emailSchema);
 
-// Configure Nodemailer Transporter
+// Configure Nodemailer Transporter with explicit Gmail SSL settings for cloud platforms
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // true for 465, false for other ports
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
+    },
+    tls: {
+        rejectUnauthorized: false // avoids handshake failures on cloud servers
     }
 });
 
